@@ -46,7 +46,7 @@ export const hotelAgent = new Agent({
   `,
   model: openai('gpt-4o-mini'),
   tools: { hotelTool, hotelRatesTool, hotelPrebookTool },
-  metrics: {
+  evals: {
     tone: new ToneConsistencyMetric(),
   },
   memory: new Memory(),

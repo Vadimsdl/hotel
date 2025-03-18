@@ -4,19 +4,39 @@ An intelligent agent for searching and booking hotels, built using Mastra.ai and
 
 ## Features
 
-- 🔍 Natural language hotel search
-- 📅 Room availability checking
-- 🏨 Detailed hotel and room information
-- 📝 Booking process
-- 💬 Natural dialogue interface
+- 🔍 Natural language hotel search with geocoding
+- 📅 Room availability checking with rate details
+- 🏨 Detailed hotel information including weather data
+- 📝 Booking process with prebook validation
+- 💬 Natural dialogue interface in multiple languages
+- 🛡️ Type-safe implementation with Zod schemas
+- ✅ Comprehensive error handling
+- 🌍 Multi-currency support
+- 🌤️ Integrated weather forecasts for destinations
 
 ## Technologies
 
-- Mastra.ai Framework
-- LiteAPI Travel API
-- TypeScript
-- Zod for validation
-- Axios for HTTP requests
+- Mastra.ai Framework for AI agent implementation
+- LiteAPI Travel API for hotel data
+- TypeScript with Zod schema validation
+- Axios for API requests
+- Open-Meteo API for geocoding and weather data
+
+## Project Structure
+
+```
+src/
+  ├── types.ts          # TypeScript interfaces for API responses
+  ├── mastra/           # Mastra.ai integration
+  │   ├── index.ts      # Main entry point
+  │   ├── tools/        # Tool implementations
+  │   │   ├── hotelsTool.ts      # Hotel search
+  │   │   ├── hotelRatesTool.ts  # Rate checking
+  │   │   └── hotelPrebookTool.ts # Booking
+  │   ├── workflows/    # Booking workflows
+  │   └── agents/       # Agent configurations
+  └── __tests__/        # Test suite
+```
 
 ## Installation
 
@@ -37,6 +57,7 @@ npm install
 
 ```env
 LITEAPI_KEY=your_api_key
+OPENAI_API_KEY=your_api_key
 ```
 
 4. Compile TypeScript:
@@ -64,26 +85,13 @@ The agent supports the following commands:
 2. Check availability:
 
 ```
-"Check room availability in hotel [ID] for these dates"
+"Check room availability in hotel [Hotel name] for these dates"
 ```
 
 3. Booking:
 
 ```
-"Book room [ID] in this hotel"
-```
-
-## Project Structure
-
-```
-src/
-  ├── agent.ts           # Main agent class
-  ├── types.ts          # Types and schemas
-  ├── tools/            # Tools
-  │   ├── hotelSearch.ts
-  │   ├── availability.ts
-  │   └── booking.ts
-  └── config/          # Configuration
+"Book room [Room name] in this hotel"
 ```
 
 ## Development
@@ -106,12 +114,30 @@ npm test
 npm run lint
 ```
 
+### Development Guidelines
+
+1. Use Zod schemas for API request/response validation
+2. Implement comprehensive error handling for all API calls
+3. Maintain type safety with TypeScript interfaces
+4. Add tests for new functionality
+5. Document API responses and error cases
+
+## API Response Types
+
+The project uses TypeScript interfaces for type-safe API interactions:
+
+- `IHotelResponse` - Hotel search results
+- `IHotelRatesResponse` - Room rates and availability
+- `IPrebookResponse` - Booking confirmation
+- `IGeocodingResponse` - Location coordinates
+
 ## Contributing
 
 1. Fork the repository
 2. Create a branch for your feature
-3. Make changes
-4. Submit a pull request
+3. Follow the development guidelines
+4. Add tests for new functionality
+5. Submit a pull request
 
 ## License
 
@@ -119,5 +145,6 @@ MIT
 
 ## Acknowledgments
 
-- Mastra.ai for the excellent framework
-- LiteAPI for providing the hotel API
+- Mastra.ai for the AI agent framework
+- LiteAPI for the comprehensive travel API
+- Open-Meteo for geocoding and weather services
