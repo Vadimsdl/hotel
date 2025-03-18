@@ -1,0 +1,47 @@
+{
+  "name": "hotel",
+  "version": "1.0.0",
+  "description": "AI Hotel Booking Agent using Mastra.ai and LiteAPI",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier --write src/**/*.ts",
+    "dev": "mastra dev"
+  },
+  "keywords": [
+    "ai",
+    "hotel-booking",
+    "mastra",
+    "liteapi"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ai-sdk/openai": "^1.2.5",
+    "@mastra/core": "^0.6.0",
+    "@mastra/evals": "^0.1.9",
+    "@mastra/memory": "^0.2.1",
+    "@mastra/yc-hn-tools": "^0.0.7",
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
+    "mastra": "^0.3.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5",
+    "ts-jest": "^29.1.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}
